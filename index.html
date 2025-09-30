@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Gift for You</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* New: Ensure html takes full height for proper scaling */
+html {
+    height: 100%; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dancing Script', cursive;
+    min-height: 100vh;
+    color: white;
+    background: #111;
+    overflow-x: hidden;
+}
+
+/* Fullscreen YouTube background */
+.video-background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Place behind content */
+}
+
+/* Overlay to darken video and improve text contrast */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 40% opaque black overlay */
+    z-index: 0; /* Above the video but below the content */
+}
+
+/* Updated CSS for iframe to ensure fullscreen cover */
+.video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Center the video */
+    transform: translate(-50%, -50%); 
+    
+    /* Dynamic scaling for 16:9 aspect ratio to ensure coverage on all screens */
+    width: 100vw;
+    height: 56.25vw; /* 100vw * 9/16 = 56.25vw */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 100vh * 16/9 = 177.77vh */
+    
+    pointer-events: none;
+    border: none;
+}
+
+/* Content wrapper */
+.content-wrapper {
+    position: relative;
+    z-index: 1; /* Ensure content is above the overlay and video */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Typing animation */
+.intro {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #FEE715; /* Ensure visibility against the video */
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for contrast */
+}
+.cursor {
+    border-right: 2px solid #fff;
+    animation: blink 0.8s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Horizontal Rule Styling for Section Breaks */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #FEE715, rgba(255, 255, 255, 0));
+    margin: 30px 0;
+}
+
+/* Description */
+.description {
+    max-width: 800px;
+    background: rgba(0,0,0,0.75); /* Slightly darker background than overlay */
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    color: #fff;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* --- Button Styles --- */
+/* New: Container for buttons */
+.button-container {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    margin-top: 40px;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+/* Spotify Button Style (Yellow/Gold) */
+.spotify-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FEE715; /* Yellow/Gold color */
+    color: #191414; /* Spotify dark color */
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: none;
+}
+
+.spotify-button:hover {
+    transform: scale(1.05);
+    background-color: #ffd700; /* Slightly darker gold on hover */
+}
+
+/* Poem Button Style (White/Contrast) */
+.poem-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #fff; /* White background for contrast */
+    color: #111; /* Dark text */
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: none;
+}
+.poem-button:hover {
+    transform: scale(1.05);
+    background-color: #eee;
+}
+
+
+@media (max-width: 768px) {
+    .intro { font-size: 2em; }
+    .description { font-size: 1em; padding: 15px; }
+    .spotify-button, .poem-button { font-size: 1.4em; padding: 12px 25px; }
+    .button-container { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- YouTube video background container -->
+<div class="video-background">
+  <iframe 
+    src="https://www.youtube.com/embed/0EWcxtOAJE4?autoplay=1&mute=1&loop=1&playlist=0EWcxtOAJE4&controls=0&modestbranding=1&rel=0&showinfo=0" 
+    frameborder="0" 
+    allow="autoplay; fullscreen" 
+    allowfullscreen>
+  </iframe>
+  <!-- Video Overlay for contrast -->
+  <div class="video-overlay"></div>
+</div>
+
+<div class="content-wrapper">
+  <!-- Short cute text -->
+  <div class="intro" id="typing"></div>
+
+  <!-- Long description -->
+  <div class="description">
+    I don’t think I can ever explain properly how much you mean to me. There’s something in the way you exist that makes everything feel softer, calmer, and more beautiful. When I see you smile, it’s like a sudden light breaking through the grayest clouds. Your presence makes the ordinary feel extraordinary, like even the quietest moments become unforgettable.
+    <br><br>
+    Your smile is sunlight on a rainy day.
+    <br>
+    Your laughter is the melody I never knew I needed.
+    <br><br>
+    I adore how naturally sweet you are. You don’t have to try to be kind or gentle—it’s part of who you are. You make people feel seen, cared for, and understood, without asking for anything in return. That sweetness touches me in ways I can’t put into words, and it makes me want to be a better person, just to deserve a fraction of your warmth.
+    <br><br>
+    Your sweetness lingers like honey on my heart.
+    <br>
+    Every word you speak carries a quiet magic.
+    
+    <hr>
+    
+    You have this calm about you that’s unlike anything I’ve ever known. Even when things are stressful or overwhelming, you remain steady. It’s not just that you stay calm—it’s that your calm spreads to everyone around you. I feel it whenever I’m near you, like a soft wind that eases my restless mind.
+    <br><br>
+    Calm as the sea at dawn.
+    <br>
+    Steady as the mountains in the morning mist.
+    <br><br>
+    I love watching you think, watching the way you process things with care. You never rush anyone, and you never let the noise of the world shake your balance. It’s a strength that I admire deeply, a quiet power that makes me feel safe just by being near you.
+    
+    <hr>
+    
+    And then there is your beauty, which is impossible to ignore. But it isn’t just your appearance—it’s how it all comes together: your smile, your eyes, the way your face lights up when you laugh, and the kindness that radiates from within. Every little thing you do, every small gesture, makes the world brighter for me. I can’t stop thinking about it.
+    <br><br>
+    Eyes like the morning sky.
+    <br>
+    Lips that hold the gentlest smiles.
+    <br>
+    Hair that catches the light like threads of gold.
+    <br><br>
+    You have a beauty that feels effortless, yet it leaves me completely in awe. And the more I see you, the more I notice it everywhere—in your actions, your words, your thoughts, your heart. It’s endless, like the stars scattered across the night sky.
+    
+    <hr>
+    
+    I adore everything about you. The sweetness, the calm, the beauty—they mix together in a way that makes you unforgettable. You make me feel things I didn’t know were possible. You make my days brighter, my nights calmer, and my world softer. I find myself thinking about you constantly, not just because I love you, but because I admire you deeply. You inspire me without even knowing it.
+    <br><br>
+    I adore you more than the words in any book.
+    <br>
+    I admire you more than the quiet strength of rivers.
+    <br><br>
+    Being near you, talking to you, or even just thinking about you fills me with joy. I love the little things: the tilt of your head when you’re thinking, the softness of your voice, the way you laugh when something truly amuses you. These small details are etched into my heart, and they make me fall for you over and over again.
+  </div>
+  
+  <!-- Buttons Container -->
+  <div class="button-container">
+    <!-- Spotify Button -->
+    <a href="https://open.spotify.com/playlist/62Tn5X7Uh1YoGsNvTgLVDG?si=35017b1927ef46c4" target="_blank" class="spotify-button">
+      Open Your Playlist 🎵
+    </a>
+    <!-- Poem Button -->
+    <a href="poems.html" class="poem-button">
+        Poem for you Madam 📜
+    </a>
+  </div>
+</div>
+
+<script>
+const typingText = "You make my world brighter ✨";
+let index = 0;
+const typingElement = document.getElementById('typing');
+
+function typeText() {
+    if (index < typingText.length) {
+        typingElement.innerHTML = typingText.substring(0, index + 1) + '<span class="cursor">|</span>';
+        index++;
+        setTimeout(typeText, 100);
+    } else {
+        typingElement.innerHTML = typingText;
+    }
+}
+
+window.onload = typeText;
+</script>
+
+</body>
+</html>

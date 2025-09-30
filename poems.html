@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poems for You</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* --- BASE STYLES (MATCHING INDEX.HTML) --- */
+html {
+    height: 100%; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dancing Script', cursive;
+    min-height: 100vh;
+    color: white;
+    background: #111;
+    overflow-x: hidden;
+}
+
+/* Fullscreen YouTube background */
+.video-background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Overlay to darken video and improve text contrast */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 0;
+}
+
+/* Updated CSS for iframe to ensure fullscreen cover */
+.video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh; 
+    pointer-events: none;
+    border: none;
+}
+
+/* Content wrapper */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+    /* Allows content to scroll if poems are long */
+    padding-bottom: 100px;
+}
+
+/* --- POEMS PAGE SPECIFIC STYLES --- */
+
+/* Main Title */
+.main-title {
+    font-size: 3.5em;
+    margin-bottom: 50px;
+    color: #FEE715;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Individual Poem Card */
+.poem-card {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); /* Light background for easy poem reading */
+    color: #111;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    text-align: left;
+    white-space: pre-wrap; /* Preserve line breaks in poems */
+}
+
+.poem-title {
+    font-size: 2em;
+    font-weight: 700;
+    color: #4A148C; /* Deep Purple for title contrast */
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #FEE715;
+    padding-bottom: 10px;
+}
+
+.poem-text {
+    font-family: 'Dancing Script', cursive; 
+    font-size: 1.5em; /* Larger font for poem text */
+    line-height: 1.8em;
+    color: #333;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #FEE715;
+    color: #111;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    z-index: 10;
+}
+.back-button:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .main-title { font-size: 2.5em; }
+    .poem-card { padding: 20px; margin-bottom: 30px; }
+    .poem-title { font-size: 1.5em; }
+    .poem-text { font-size: 1.3em; }
+}
+</style>
+</head>
+<body>
+
+<!-- YouTube video background container -->
+<div class="video-background">
+  <iframe 
+    src="https://www.youtube.com/embed/0EWcxtOAJE4?autoplay=1&mute=1&loop=1&playlist=0EWcxtOAJE4&controls=0&modestbranding=1&rel=0&showinfo=0" 
+    frameborder="0" 
+    allow="autoplay; fullscreen" 
+    allowfullscreen>
+  </iframe>
+  <!-- Video Overlay for contrast -->
+  <div class="video-overlay"></div>
+</div>
+
+<div class="content-wrapper">
+  <!-- Main Title -->
+  <div class="main-title">
+    A Quiet Garden of Words 🖋️
+  </div>
+
+  <!-- Poem 1 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        #1 Like I Knew You Before 16/09/2025
+    </div>
+    <div class="poem-text">
+        I met you today, yet it feels so strange,
+        Like time had folded, with nothing to change.
+        Your smile was new, your laugh was too,
+        But my heart kept whispering, “I know you.”
+
+        The world called it chance, a moment, a start,
+        But it settled so quickly, deep in my heart.
+        Strangers don’t feel this easy, this right,
+        Yet here you are, shining so bright.
+
+        It wasn’t just meeting, it felt like a sign,
+        As if our stories had quietly aligned.
+        Every glance carried something more,
+        Like a door I’d walked through once before.
+
+        So I’ll say it simply, no grand disguise,
+        There’s something special I see in your eyes.
+        We met today, but I just can’t ignore,
+        It feels like I’ve known you forever, and more
+    </div>
+  </div>
+
+  <!-- Poem 2 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        #2 For her My Madam 🎀 17/09/2025
+    </div>
+    <div class="poem-text">
+        On weary days when my soul feels torn,
+        your smile becomes my gentle dawn.
+        Oh goddess, what gift, what fate, what plan,
+        to let me worship where love began.
+
+        I am no king, no saint, no fire,
+        just a heart that beats with quiet desire.
+        Yet mercy was written by heaven above,
+        when it sent me you — my temple of love.
+
+        So let me bow, not in despair,
+        but in surrender, true and rare.
+        I am not only in love with you,
+        I am devoted, completely, through.
+    </div>
+  </div>
+
+  <!-- Poem 3 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        #3 The Glow Of Her Heart ❤ 18/09/2025
+    </div>
+    <div class="poem-text">
+        Even in silence, I hear your song,
+        A gentle rhythm that pulls me along.
+        Through darkest nights, your light will stay,
+        Guiding my heart in its fragile way.
+
+        The world may fade, its colors dim,
+        But love still burns — it lives within.
+        Your smile ignites the skies above,
+        A timeless spark, eternal love.
+
+        Each word you speak feels carved in gold,
+        A story written, yet never old.
+        Your laughter paints the air so bright,
+        It turns my shadows into light.
+
+        So let the stars bear witness true,
+        That every dream begins with you.
+        For in my heart, there’s only one—
+        My moon, my dawn, my endless sun.
+    </div>
+  </div>
+
+  <!-- Poem 4 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        #4 Her kindness my light ✨ 19/09/2025
+    </div>
+    <div class="poem-text">
+        Your kindness feels like morning light,
+        Breaking through my longest night.
+        With every smile, the shadows fade,
+        A brighter world is gently made.
+
+        You speak with warmth, so soft, so true,
+        And paint my skies in softer blue.
+        Where doubt once lived, now hope can stay,
+        Because you choose to light my way.
+
+        Even the silence feels alive,
+        When your gentle care arrives.
+        Your presence heals, your laughter sings,
+        You turn the gray to golden springs.
+
+        To call you sweet would still fall short,
+        No words could hold the love you brought.
+        A heart like yours, so rare to see,
+        Has changed the way the world feels to me
+    </div>
+  </div>
+
+  <!-- Poem 5 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        #5 How Cute She Is ❤ 19/09/2025
+    </div>
+    <div class="poem-text">
+        The way you smile, so pure, so small,
+        It feels like sunshine warms us all.
+        Your laugh’s a spark, so soft, so sweet,
+        It makes the moment feel complete.
+
+        Your eyes hold mischief, bright and shy,
+        Like little stars across the sky.
+        One playful glance, the world turns new,
+        And joy just follows all you do.
+
+        The way you pout when things go wrong,
+        Could melt the hardest hearts along.
+        Even your silence feels so near,
+        Like sweetest music I can hear.
+
+        So cute, so rare, a gentle glow,
+        Much more than words could ever show.
+        You make the dullest hours shine,
+        I’m lucky that your light is mine.
+    </div>
+  </div>
+
+  <!-- Poem 6 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        The Tale of Padmanabha ✨ 21/09/2025
+    </div>
+    <div class="poem-text">
+        Padmanabha, your leela,
+        how can I put it into words?
+        On a path once filled with shadows,
+        you placed her as the light I never expected.
+
+        She became the answer to prayers,
+        hidden within your smile,
+        a form you chose to send my way,
+        a soul that now rests in my heart.
+
+        You lifted my burdens,
+        by placing her hand into mine,
+        what once felt empty and hollow,
+        you filled with the warmth of her voice, her presence.
+
+        Padmanabha, your leela,
+        how can I ever express?
+        With just a single turn of your divine play,
+        you brought me closer to her.
+    </div>
+  </div>
+
+  <!-- Poem 7 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        The blessing of my life ❤ 🎀 23/09/25
+    </div>
+    <div class="poem-text">
+        The way she spoke, the way her eyes lit up
+        I adored every single glance of hers.
+        I never knew the Lord had such mercy on me,
+        To bless my life with her presence.
+
+        I love her, I adore her, I cherish her.
+        A million lines of praise could be written,
+        Yet none could ever match her beauty.
+        She is truly one in a million.
+
+        Her eyes—they sparkle like stars.
+        Her smile soft, playful, and mischievous.
+        How can words ever capture her?
+        My feelings shine brighter each passing day.
+
+        I think of her every moment,
+        Wake with her name in my heart,
+        And fall asleep with her in my thoughts.
+        I have become hers, entirely.
+        I love her.
+
+        The way I long to treat her,
+        The way I wish to wipe away every sorrow,
+        The way I want to stand by her forever
+        No love could ever compare.
+    </div>
+  </div>
+
+  <!-- Poem 8 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        She Danced With the Grace of Her 23/09/2025
+    </div>
+    <div class="poem-text">
+        She danced with the grace of her, lamps flickered into flame,
+        Every beat seemed to whisper out her name.
+        Crowds were lost in color, but my eyes knew only one,
+        Her smile turned the night into a rising sun.
+
+        She danced with the grace of her, bangles chimed like prayer,
+        Even the stars above leaned down just to stare.
+        The world was dressed in rhythm, the air was filled with song,
+        But in her sway I found the place where I belong.
+
+        She danced with the grace of her, each step a secret call,
+        A language made of glances no one else could know at all.
+        In the lantern glow she moved, a festival made flesh,
+        My heart kept time with hers, two rhythms softly mesh.
+
+        She danced with the grace of her, and all I could do was see,
+        That every Navratri flame was burning just for me.
+        Not a goddess, not a dream, but the truest girl alive,
+        And in her dance I knew — my love will never die.
+    </div>
+  </div>
+
+  <!-- Poem 9 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        HER EYES 25/09/25
+    </div>
+    <div class="poem-text">
+        Her eyes
+        Vast galaxies spinning in calm midnight skies,
+        Each glance a silent promise
+        That makes the universe pause and listen.
+        In their quiet depths,
+        Starlight dances and secrets are kept,
+        Mysteries untold, gentle and wise,
+        A world awakened every time she blinks.
+        
+        They hold the glow of distant dawns
+        And the hush of twilight’s peace,
+        Soft as the whisper of spring rain,
+        Warm as the hope only love can release.
+        
+        Sometimes they glimmer with laughter,
+        Other times, shimmer with dreams,
+        Two constellations set afloat
+        On the endless ocean of her being.
+        
+        To look in her eyes is to remember wonder
+        To believe in beauty,
+        To lose and find oneself,
+        Again and again, in her gaze.
+    </div>
+  </div>
+  
+  <!-- Poem 10 Card -->
+  <div class="poem-card">
+    <div class="poem-title">
+        HER BEAUTIFUL FACE 🎀
+    </div>
+    <div class="poem-text">
+        Her face is the first dawn I’ve ever trusted,
+        a quiet light that falls softly,
+        yet reaches every hidden part of me.
+        Her eyes are not just eyes—
+        they are whole worlds,
+        where I lose myself and still find my way back
+        better than before.
+
+        Her smile—
+        ah, her smile—
+        it is the kind of music no instrument can play,
+        a melody born only in the heart.
+        It doesn’t just brighten her face,
+        it lifts the weight of entire days off mine.
+
+        When I look at her,
+        I don’t see perfection carved by the world’s standards.
+        I see something rarer,
+        a harmony of grace and kindness
+        woven so seamlessly together
+        that beauty becomes more than appearance—
+        it becomes a presence.
+
+        Her face is not fleeting charm.
+        It is a promise,
+        that even in storms,
+        there will be light.
+        It is a reminder
+        that God writes poetry too,
+        sometimes in the curve of a cheek,
+        sometimes in the shimmer of a gaze,
+        and sometimes, if you are blessed,
+        in the face of the one you love.
+    </div>
+  </div>
+
+</div>
+
+<!-- Back Button (fixed position) -->
+<a href="index.html" class="back-button">
+    &larr; Back to the Message
+</a>
+
+</body>
+</html>
